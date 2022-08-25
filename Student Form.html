@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Content here -->
+        <h1>Employee catalogue!</h1>
+        <form name="info">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" id="exampleFirstName1" aria-describedby="emailHelp"
+                    placeholder="eg. Jon">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" id="exampleLastName1" placeholder="eg. Snow">
+            </div>
+            <div class="form-group">
+                <label for="DOB">Date of Birth</label>
+                <input type="date" class="form-control" id="exampleDOB1" aria-describedby="emailHelp">
+            </div>
+            <div id="gen" class="form-group">
+                <label for="gender">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="male" checked>
+                    <label class="form-check-label" for="radio1">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="female">
+                    <label class="form-check-label" for="radio2">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="BG">Blood Group</label>
+                <div class="Bgroup">
+                    <select id="grp" class="form-select" aria-label="Default select example">
+                        <option selected>O+ve</option>
+                        <option value="1">O-ve</option>
+                        <option value="2">A+ve</option>
+                        <option value="3">A-ve</option>
+                        <option value="3">B+ve</option>
+                        <option value="3">B-ve</option>
+                        <option value="3">AB+ve</option>
+                        <option value="3">AB-ve</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPhone1">Contact Number</label>
+                <input type="number" class="form-control" id="exampleInputPhone1" placeholder="Enter contact number">
+                <small id="PhoneHelp" class="form-text text-muted">We'll never share your contact number with anyone
+                    else.</small>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" onclick="display();" class="btn btn-primary">Submit</button>
+            
+        </form>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script LANGUAGE="JavaScript" type="text/javascript">
+        function display() {
+            DispWin = window.open('', 'NewWin', 'toolbar=no,status=no,width=300,height=200')
+            message = "<ul><li><b>First Name: </b>" + document.info.exampleFirstName1.value;
+            message += "<li><b>Last Name: </b>" + document.info.exampleLastName1.value;
+            message += "<li><b>DOB: </b>" + document.info.exampleDOB1.value;
+            // message += "<li><b>Gender: </b>" + document.info.gen.value;
+            message += "<li><b>Blood Group: </b>" + document.info.grp.value;
+            message += "<li><b>Email: </b>" + document.info.exampleInputEmail1.value;
+            message += "<li><b>Phone: </b>" + document.info.exampleInputPhone1.value + "</ul>";
+            DispWin.document.write(message);
+        }
+    </script>
+</body>
+
+</html>
