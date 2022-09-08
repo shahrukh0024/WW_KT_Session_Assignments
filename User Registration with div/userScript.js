@@ -166,19 +166,85 @@ const validateData = (ev) => {
     else {
         setSuccess(zipcode);
     }
+
+    console.log(document.getElementById('userId').value);
+    let userId = document.getElementById('userId').value;
+    // userId = parseInt(userId, 10);
+    console.log(typeof(userId));
     console.log(status);
     if (status) {
-        addUser(username.value,
-            firstname.value,
-            lastname.value,
-            email.value,
-            street.value,
-            suite.value,
-            city.value,
-            zipcode.value,
-            Users
-        );
+        if (userId == -1) {
+            addUser(username.value,
+                firstname.value,
+                lastname.value,
+                email.value,
+                street.value,
+                suite.value,
+                city.value,
+                zipcode.value
+            );
+        }
+        else {
+            console.log('userExist');
+            updateUsers(userId,
+                username.value,
+                firstname.value,
+                lastname.value,
+                email.value,
+                street.value,
+                suite.value,
+                city.value,
+                zipcode.value
+            );
+
+        }
     }
+}
+
+function updateUsers(userid,
+    username,
+    firstname,
+    lastname,
+    email,
+    street,
+    suite,
+    city,
+    zipcode,
+) {
+    let index = 0;
+    for (u of Users) {
+        if (u.id == userid) {
+            break;
+        }
+        index++;
+    }
+    let fullName = firstname + " " + lastname;
+    Users[index].name = fullName;
+    Users[index].username = username;
+    Users[index].email = email;
+    Users[index].address.street = street;
+    Users[index].address.suite = suite;
+    Users[index].address.city = city;
+    Users[index].address.zipcode = zipcode;
+    
+    // console.log(Users[index].address.city, city);
+    // let fullName = firstname + " " + lastname;
+    // let user = {
+    //     "id": userid,
+    //     "name": fullName,
+    //     "username": username,
+    //     "email": email,
+    //     "address": {
+    //         "street": street,
+    //         "suite": suite,
+    //         "city": city,
+    //         "zipcode": zipcode,
+    //     }
+    // }
+    // Users.splice(index,1,user);
+    // console.log(Users);
+    clearAllField();
+    loadUser();
 }
 
 function setError(username, error) {
@@ -191,13 +257,13 @@ function setError(username, error) {
 
 function setSuccess(username) {
     let usernameParent = username.parentElement;
-    console.log(username.parentElement);
     usernameParent.className = "input-field success"; // Setting Class
     // usernameParent.querySelector("i").className ="fa fa-check-circle"; // icon
     usernameParent.querySelector(".fa").className = "fa fa-check-circle";
 }
 
 function clearAllField() {
+    document.getElementById('userId').value = -1;
     document.getElementById('username').value = "";
     document.getElementById('firstname').value = "";
     document.getElementById('lastname').value = "";
@@ -296,7 +362,7 @@ function loadUser() {
                 <div class="user-zip"><label class="user-label">Zipcode:</label><span>${user.address.zipcode}</span></div>
                 <div class="button">
                     <button class="dlt-button" onclick="deleteUser(this)">Delete</button>
-                    <button class="edit-button"onclick="editUser(this)"> Edit </button>
+                    <button class="edit-button" onclick="editUser(this);" > Edit </button>
                     <button class="myBtn" onclick="viewUserInfo(this)" >View</button>
                     
                          <!-- The Modal -->
@@ -353,8 +419,8 @@ function addUser(username,
 
 
     }
-    users.unshift(user);
-    console.log(users);
+    Users.unshift(user);
+    console.log(Users);
     clearAllField();
     loadUser();
 }
@@ -375,6 +441,8 @@ function deleteUser(element) {
 
 function editUser(element) {
     userInfo = element.parentElement.parentElement;
+    let ID = userInfo.querySelector(".user-id").innerHTML;
+    console.log(ID);
     let fullname = userInfo.querySelector(".name").innerHTML;
     let userName = userInfo.querySelector(".user-name").children[1].innerHTML;
     let userEmail = userInfo.querySelector(".user-email").children[1].innerHTML;
@@ -405,11 +473,12 @@ function editUser(element) {
 
         }
     }
-    console.log(userAddressStr);
-    console.log(addressArray);
-    console.log(city, userZipcode);
+    // console.log(userAddressStr);
+    // console.log(addressArray);
+    // console.log(city, userZipcode);
 
     // ------Values into the Input Field----
+    document.getElementById('userId').value = ID;
     document.getElementById('username').value = userName;
     document.getElementById('firstname').value = userFirstName;
     document.getElementById('lastname').value = userLastName;
@@ -426,11 +495,11 @@ function viewUserInfo(element) {
     console.log(element.parentElement.children[3].children[0].children[2]);
     // <div class="name">${user.name}</div>
     let userDiv = document.getElementById('user-modal').innerHTML = `<div class="name">${element.parentElement.children[3].children[0].children[2]}</div>`
-    
-    
-    
-    
-    
+
+
+
+
+
     // Get the modal
     var modal = document.getElementById("myModal");
 

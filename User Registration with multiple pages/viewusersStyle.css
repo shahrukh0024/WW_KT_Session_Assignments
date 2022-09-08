@@ -1,0 +1,88 @@
+.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#user-container{
+    padding: 3em 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em 1em;
+   
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    background-color: #f3cfc6;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    padding-top: 2px;
+    font-weight:600;
+
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 25px;
+    margin-top: 10px;
+}
+.dlt-button{
+     font-family: 'Montserrat';
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+.edit-button{
+    font-family: 'Montserrat';
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #4c30ed;
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.user-info .name{
+    
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+/* .user-text{
+    font-weight:600;
+} */
+.user-label{
+    font-weight:100;
+    font-style: italic;
+    display: inline;
+}
+
+.user-img{
+    width: 150px;
+    height: 150px;
+    
+
+}
+.user-img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-id{
+    display: none;
+}
+

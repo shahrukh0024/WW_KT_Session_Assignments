@@ -1,0 +1,141 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	
+}
+*{
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.topnav{
+    overflow: hidden;
+    background-color: rgb(46, 53, 161);
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+
+  /* View Page style */
+
+  .title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#user-container{
+    padding: 3em 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em 1em;
+   
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    background-color: #f3cfc6;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    padding-top: 2px;
+    font-weight:600;
+
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 25px;
+    margin-top: 10px;
+}
+.dlt-button{
+     font-family: 'Montserrat';
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+.edit-button{
+    font-family: 'Montserrat';
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #4c30ed;
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.user-info .name{
+    
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+/* .user-text{
+    font-weight:600;
+} */
+.user-label{
+    font-weight:100;
+    font-style: italic;
+    display: inline;
+}
+
+.user-img{
+    width: 150px;
+    height: 150px;
+    
+
+}
+.user-img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-id{
+    display: none;
+}
+
