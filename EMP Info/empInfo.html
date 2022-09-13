@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <script src="empinfo.js"></script>
+    <link rel="stylesheet" href="empstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="form_wrapper">
+
+        <div class="form_container">
+            <div id="title_container">
+                <h1 id="heading">Employee Registration</h1>
+            </div>
+
+            <form action="" name="userForm" class="form_hero">
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="fname">First Name</label>
+                    </div>
+
+                    <div class="input_container">
+                        <input class="ipField" type="text" id="fname" placeholder="eg. Jon" value="" name="firstname">
+                        <small id="fnameError" class="formerror"></small>
+                        <small id="fnameMsg" class="formMsg"></small>
+                    </div>
+
+                </div>
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="lname">Last Name</label>
+                    </div>
+
+                    <div class="input_container">
+                        <input type="text" id="lname" placeholder="eg. Snow" value="" name="Lastname">
+                        <small id="lnameError" class="formerror"></small>
+                        <small id="lnameMsg" class="formMsg"></small>
+                    </div>
+
+                </div>
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="DOB">Date of Birth</label>
+                    </div>
+
+                    <div class="input_container">
+                        <input type="date" id="DOB" name="birthDate" value="">
+                        <small id="DOBError" class="formerror"></small>
+                        <small id="DOBMsg" class="formMsg"></small>
+                    </div>
+
+                </div>
+
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="education">Education Qualification</label>
+                    </div>
+
+                    <div class="input_container">
+                        <select id="userEdu" name="qualification">
+                            <option value="-1">--Select--</option>
+                            <option id="ssc" value="SSC">SSC</option>
+                            <option id="hsc" value="HSC">HSC</option>
+                            <option id="ug" value="UG">UG</option>
+                            <option id="pg" value="PG">PG</option>
+                        </select>
+                        <small id="eduError" class="formerror"></small>
+                        <small id="eduMsg" class="formMsg"></small>
+                    </div>
+
+                </div>
+
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="email">E-mail</label>
+                    </div>
+
+                    <div class="input_container">
+                        <input class="ipField" type="text" id="email" placeholder="Enter your email" value=""
+                            name="mail">
+                        <small id="emailError" class="formerror"></small>
+                        <small id="emailMsg" class="formMsg"></small>
+                    </div>
+
+                </div>
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="phoneNumber">Phone Number</label>
+                    </div>
+
+                    <div class="input_container">
+                        <input class="ipField" type="text" id="phoneNumber" placeholder="Enter your phone number"
+                            value="" name="phone">
+                        <small id="pNumberError" class="formerror"></small>
+                        <small id="pNumberMsg" class="formMsg"></small>
+                    </div>
+
+                </div>
+                <div class="formbox">
+                    <div class="label_container">
+                        <label for="gender">Gender</label>
+                    </div>
+
+                    <div class="gender_container">
+                        <input type="radio" id="mGender" value="male" name="gender">
+                        <label for="male">Male</label>
+
+                        <input type="radio" id="fGender" value="female" name="gender">
+                        <label for="female">Female</label>
+                    </div>
+                    <small id="genderError" class="formerror"></small>
+                    <small id="genderMsg" class="formMsg"></small>
+
+                </div>
+
+                <div class="formbox">
+                    <div class="tnc_box">
+                        <label for="terms_and_conditions">
+                            I agree to the Terms of Service:
+                        </label>
+                        <input type="checkbox" id="tnc" value="1" onclick="enabledSubmit(this)" />
+                    </div>
+                </div>
+                <div class="formbox">
+                    <div class="btns">
+                        <input type="submit" class="buttons" id="userSubmit" value="Submit" disabled>
+                        <input type="reset" class="buttons" name="resetInfo" id="resetUserInfo" onclick="resetForm()">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="show">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Education</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="tableBody" id="UserData">
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./editUser.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./editUserStyle.css">
+    <title>Edit User</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a href="./signup.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</a>
+        <a href="./viewusers.html"><i class="fa fa-fw fa-user"></i>Views Users</a>
+
+    </div>
+
+    <div class="container">
+        <div class="form-box">
+            <h2>Update Your Details</h2>
+            <div class="user-id">
+                <input type="number" id="userId"  placeholder="" value=-1>
+            </div>
+            <div class="input-field">
+                <label for="username">User name</label>
+                <input type="text" id="username" placeholder="username" onblur="validateUser()">
+                <i class="fa " id="usernameIcon" aria-hidden="true"></i>
+                <!-- <i class="fa fa-check-circle " aria-hidden="true"></i> -->
+                <span id="usernameMsg"></span>
+            </div>
+            <div class="input-field">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" placeholder="first name" onblur="validateUser()">
+                <i class="fa " id="firstnameIcon" aria-hidden="true"></i>
+                <span id="firstnameMsg"></span>
+            </div>
+            <div class="input-field">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" placeholder="last name" onblur="validateUser()">
+                <i class="fa " id="lastnameIcon" aria-hidden="true"></i>
+                <span id="lastnameMsg"></span>
+            </div>
+            <div class="input-field">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" placeholder="e-mail" onblur="validateUser()">
+                <i class="fa " id="emailIcon" aria-hidden="true"></i>
+                <span id="emailMsg"></span>
+            </div>
+            <div class="input-field">
+                <label for="address">Address</label>
+                <input type="text" id="street" placeholder="street" onchange="validateUser()">
+                <i class="fa " id="streetIcon" aria-hidden="true"></i>
+                <span id="streetMsg"></span>
+            </div>
+            <div class="input-field">
+                <input type="text" id="suite" placeholder="suite" onblur="validateUser()">
+                <i class="fa " id="suiteIcon" aria-hidden="true"></i>
+                <span id="suiteMsg"></span>
+            </div>
+            <div class="input-field">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="city" onblur="validateUser()">
+                <i class="fa " id="cityIcon" aria-hidden="true"></i>
+                <span id="cityMsg">dd</span>
+            </div>
+            <div class="input-field">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" id="zipcode" placeholder="zipcode" onblur="validateUser()">
+                <i class="fa " id="zipcodeIcon" aria-hidden="true"></i>
+                <span id="zipcodeMsg"></span>
+            </div>
+            <button type="submit" id="submit" class="button" disabled>Update</button>
+</body>
+</html>

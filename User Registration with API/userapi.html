@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="userstyleAPI.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="userScriptAPI.js"></script>
+    <title>User Registration</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Create Your Account</h2>
+            <div class="user-id">
+                <input type="number" id="userId" placeholder="" value=-1>
+            </div>
+            <div class="input-field">
+                <label for="username">User name</label>
+                <input type="text" id="username" placeholder="username">
+                <i class="fa " aria-hidden="true"></i>
+                <!-- <i class="fa fa-check-circle " aria-hidden="true"></i> -->
+                <span></span>
+            </div>
+            <div class="input-field">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" placeholder="first name">
+                <i class="fa " aria-hidden="true"></i>
+                <span></span>
+            </div>
+            <div class="input-field">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" placeholder="last name">
+                <i class="fa " aria-hidden="true"></i>
+                <span></span>
+            </div>
+            <div class="input-field">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" placeholder="e-mail">
+                <i class="fa " aria-hidden="true"></i>
+                <span></span>
+            </div>
+            <div class="input-field">
+                <label for="address">Address</label>
+                <input type="text" id="street" placeholder="street">
+                <i class="fa " aria-hidden="true"></i>
+                <span></span>
+            </div>
+            <div class="input-field">
+                <input type="text" id="suite" placeholder="suite">
+                <i class="fa " aria-hidden="true"></i>
+                <span>errd</span>
+            </div>
+            <div class="input-field">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="city">
+                <i class="fa " aria-hidden="true"></i>
+                <span>dd</span>
+            </div>
+            <div class="input-field">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" id="zipcode" placeholder="zipcode">
+                <i class="fa " aria-hidden="true"></i>
+                <span></span>
+            </div>
+            <input type="submit" id="submit" value="Submit">
+        </div>
+    </div>
+    <div id="confirmation-msg"></div>
+    <div class="user-wrapper">
+        <h2 class="title"> Users List</h2>
+        <div id="user-container">
+            <div class="user-info">
+                <div class="user-img-container"><img class="user-img"
+                        src="../User Registration with div/Assets/user.png" alt="" srcset=""></div>
+                <div class="name">Leanne Graham</div>
+                <div class="user-name">Bret</div>
+                <div class="user-email">Sincere@april.biz</div>
+                <div class="user-address">Kulas Light Apt. 556 Gwenborough</div>
+                <div class="user-zipcode">92998</div>
+                <div class="button">
+                    <button class="dlt-button">Delete</button>
+                    <button class="edit-button"> Edit </button>
+
+                </div>
+
+            </div>
+            <div class="user-info">
+                <div class="name">Leanne Grahammm</div>
+                <div class="user-name">Bret</div>
+                <div class="user-email">Sincere@april.biz</div>
+                <div class="user-address">Kulas Light Apt. 556 Gwenborough 92998</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

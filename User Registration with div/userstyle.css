@@ -1,0 +1,258 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	
+}
+*{
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+.container,.form-box{
+    display: block;
+    width: 100%;
+}
+body{
+    background: #8ce2c8;
+    font-family: 'Lato', sans-serif;
+}
+.form-box{
+    max-width:450px;
+    margin: 100px auto;
+    border-radius: 10px;
+    min-height: 200px;
+    padding: 30px;
+    background: #fff;
+}
+.form-box .input-field{
+    
+    margin-bottom: 20px;
+    position: relative;
+    
+}
+.form-box input{
+    display: block;
+    min-height: 20px;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form-box input[type='text']{
+    padding-right: 25px
+}
+.form-box h2{
+    display: block;
+    text-align: center;
+    font-size: 28px;
+   margin-bottom: 40px;
+}
+.form-box label{
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 5px;
+    display: block;
+
+}
+.form-box input[type='submit']{
+    background: #1a9ae2;
+    cursor: pointer;
+    color: #fff;
+    
+}
+
+.form-box .input-field .address{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+   
+}
+
+.form-box .fa{
+    position: absolute;
+    right: 10px;
+    margin-top: -30px;
+}
+
+.form-box .input-field.error input{
+    border-color: #f00;
+    border-width: 2px;
+}
+.form-box .input-field.error .fa{
+    color: #f00;
+}
+.form-box .input-field.error span{
+    color: #f00;
+    display: block;
+}
+
+.form-box .input-field.success input{
+    border-color: #0b0;
+    border-width: 2px;
+}
+.form-box .input-field.success .fa{
+    color: #0b0;
+    
+}
+.form-box .input-field.success span{
+    color: #0b0;
+}
+.form-box .input-field span{
+    display: none;
+}
+
+
+/* k */
+.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#user-container{
+    padding: 3em 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em 1em;
+   
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    background-color: #f3cfc6;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    padding-top: 2px;
+    font-weight:600;
+
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 25px;
+    margin-top: 10px;
+}
+.dlt-button{
+     font-family: 'Montserrat';
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+.edit-button{
+    font-family: 'Montserrat';
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #4c30ed;
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.user-info .name{
+    
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+/* .user-text{
+    font-weight:600;
+} */
+.user-label{
+    font-weight:100;
+    font-style: italic;
+    display: inline;
+}
+
+.user-img{
+    width: 150px;
+    height: 150px;
+    
+
+}
+.user-img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-id{
+    display: none;
+}
+
+
+
+
+
+/* --------Modal--------- */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
+
