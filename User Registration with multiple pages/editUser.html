@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signupstyle.css">
-    <script src="signUp.js"></script>
-    <!-- <script src="./indexScript.js"></script> -->
+    <title>Project</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./editUser.js"></script>
+    <!-- <script src="./viewusers.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Sign Up</title>
+    <link rel="stylesheet" href="./editUserStyle.css">
+    <title>Edit User</title>
 </head>
-
 <body>
     <div class="topnav">
         <a href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
         <a href="./signup.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</a>
         <a href="./viewusers.html"><i class="fa fa-fw fa-user"></i>Views Users</a>
+
     </div>
 
     <div class="container">
         <div class="form-box">
-            <h2>Create Your Account</h2>
+            <h2>Update Your Details</h2>
             <div class="user-id">
                 <input type="number" id="userId"  placeholder="" value=-1>
             </div>
@@ -75,11 +75,6 @@
                 <i class="fa " id="zipcodeIcon" aria-hidden="true"></i>
                 <span id="zipcodeMsg"></span>
             </div>
-            <button type="submit" id="submitt" class="button" disabled>Submit</button>
-            <!-- confirmation  -->
-            <div id="confirmation-msg"></div>
-        </div>
-    </div>
+            <button type="submit" id="submit" class="button" disabled>Update</button>
 </body>
-
 </html>

@@ -1,79 +1,105 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadUser();
+    getUsers();
+    setTimeout(() => {
+        loadUser();
+    }, 2000);
+
     document.getElementById('submit').addEventListener('click', validateData);
 });
 
 // ---------Global---------
-Users = [
-    {
-        "id": 1,
-        "name": "Leanne Graham",
-        "username": "Bret",
-        "email": "Sincere@april.biz",
-        "address": {
-            "street": "Kulas Light",
-            "suite": "Apt. 556",
-            "city": "Gwenborough",
-            "zipcode": "92998-3874",
-        }
+// Users = [
+//     {
+//         "id": 1,
+//         "name": "Leanne Graham",
+//         "username": "Bret",
+//         "email": "Sincere@april.biz",
+//         "address": {
+//             "street": "Kulas Light",
+//             "suite": "Apt. 556",
+//             "city": "Gwenborough",
+//             "zipcode": "92998-3874",
+//         }
 
-    },
-    {
-        "id": 2,
-        "name": "Ervin Howell",
-        "username": "Antonette",
-        "email": "Shanna@melissa.tv",
-        "address": {
-            "street": "Victor Plains",
-            "suite": "Suite 879",
-            "city": "Wisokyburgh",
-            "zipcode": "90566-7771",
+//     },
+//     {
+//         "id": 2,
+//         "name": "Ervin Howell",
+//         "username": "Antonette",
+//         "email": "Shanna@melissa.tv",
+//         "address": {
+//             "street": "Victor Plains",
+//             "suite": "Suite 879",
+//             "city": "Wisokyburgh",
+//             "zipcode": "90566-7771",
 
-        }
+//         }
 
-    },
-    {
-        "id": 3,
-        "name": "Clementine Bauch",
-        "username": "Samantha",
-        "email": "Nathan@yesenia.net",
-        "address": {
-            "street": "Douglas Extension",
-            "suite": "Suite 847",
-            "city": "McKenziehaven",
-            "zipcode": "59590-4157",
+//     },
+//     {
+//         "id": 3,
+//         "name": "Clementine Bauch",
+//         "username": "Samantha",
+//         "email": "Nathan@yesenia.net",
+//         "address": {
+//             "street": "Douglas Extension",
+//             "suite": "Suite 847",
+//             "city": "McKenziehaven",
+//             "zipcode": "59590-4157",
 
-        }
+//         }
 
-    },
-    {
-        "id": 4,
-        "name": "Patricia Lebsack",
-        "username": "Karianne",
-        "email": "Julianne.OConner@kory.org",
-        "address": {
-            "street": "Hoeger Mall",
-            "suite": "Apt. 692",
-            "city": "South Elvis",
-            "zipcode": "53919-4257",
+//     },
+//     {
+//         "id": 4,
+//         "name": "Patricia Lebsack",
+//         "username": "Karianne",
+//         "email": "Julianne.OConner@kory.org",
+//         "address": {
+//             "street": "Hoeger Mall",
+//             "suite": "Apt. 692",
+//             "city": "South Elvis",
+//             "zipcode": "53919-4257",
 
-        }
+//         }
 
-    },
-    {
-        "id": 5,
-        "name": "Chelsey Dietrich",
-        "username": "Kamren",
-        "email": "Lucio_Hettinger@annie.ca",
-        "address": {
-            "street": "Skiles Walks",
-            "suite": "Suite 351",
-            "city": "Roscoeview",
-            "zipcode": "33263",
+//     },
+//     {
+//         "id": 5,
+//         "name": "Chelsey Dietrich",
+//         "username": "Kamren",
+//         "email": "Lucio_Hettinger@annie.ca",
+//         "address": {
+//             "street": "Skiles Walks",
+//             "suite": "Suite 351",
+//             "city": "Roscoeview",
+//             "zipcode": "33263",
 
-        }
-    }];
+//         }
+//     }];
+let Users = [];
+const rootURL = 'https://jsonplaceholder.typicode.com/users';
 
+function getUsers() {
+
+    axios.get(rootURL)
+        .then(response => {
+            // console.log(response.data);
+            // console.log(response.data.length);
+            Users = [...response.data];
+            // console.log(Users);
+        });
+}
+
+function sendUsers(newUser) {
+    console.log(newUser);
+    axios.post(rootURL, newUser)
+        .then(response => {
+            console.log(response);
+        });
+
+    console.log('sendUser');
+}
 const validateData = (ev) => {
     ev.preventDefault();
     let status = true;
@@ -170,7 +196,7 @@ const validateData = (ev) => {
     console.log(document.getElementById('userId').value);
     let userId = document.getElementById('userId').value;
     // userId = parseInt(userId, 10);
-    console.log(typeof(userId));
+    console.log(typeof (userId));
     console.log(status);
     if (status) {
         if (userId == -1) {
@@ -218,33 +244,46 @@ function updateUsers(userid,
         }
         index++;
     }
-    let fullName = firstname + " " + lastname;
-    Users[index].name = fullName;
-    Users[index].username = username;
-    Users[index].email = email;
-    Users[index].address.street = street;
-    Users[index].address.suite = suite;
-    Users[index].address.city = city;
-    Users[index].address.zipcode = zipcode;
-    
-    // console.log(Users[index].address.city, city);
     // let fullName = firstname + " " + lastname;
-    // let user = {
-    //     "id": userid,
-    //     "name": fullName,
-    //     "username": username,
-    //     "email": email,
-    //     "address": {
-    //         "street": street,
-    //         "suite": suite,
-    //         "city": city,
-    //         "zipcode": zipcode,
-    //     }
-    // }
-    // Users.splice(index,1,user);
+    // Users[index].name = fullName;
+    // Users[index].username = username;
+    // Users[index].email = email;
+    // Users[index].address.street = street;
+    // Users[index].address.suite = suite;
+    // Users[index].address.city = city;
+    // Users[index].address.zipcode = zipcode;
+
+    // console.log(Users[index].address.city, city);
+    let fullName = firstname + " " + lastname;
+    let updatedUser = {
+        "id": userid,
+        "name": fullName,
+        "username": username,
+        "email": email,
+        "address": {
+            "street": street,
+            "suite": suite,
+            "city": city,
+            "zipcode": zipcode,
+        }
+    }
+    Users.splice(index,1,updatedUser);
     // console.log(Users);
     clearAllField();
-    loadUser();
+
+    axios.put(`https://jsonplaceholder.typicode.com/users/${userid}`,Users)
+    .then(response =>{
+        console.log(response);
+        document.getElementsByClassName('user-info').innerHTML = "Updated";
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+
+    setTimeout(() => {
+        loadUser();
+    }, 2000);
+   
 }
 
 function setError(username, error) {
@@ -347,66 +386,33 @@ function loadUser() {
 
     //         }
     //     }];
-    
+    console.log('loadUser');
     let dataHTML = "";
     for (user of Users) {
         dataHTML += `<div class="user-info">
-                <div class="user-img-container"><img class="user-img" src="../User Registration with div/Assets/user.png" alt="" srcset=""></div>
-                <div class="name">${user.name}</div>
-                <div class="user-id">${user.id}</div>
-                <div class="user-name"><label class="user-label">Username:</label> <span>${user.username}</span></div>
-                <div class="user-email"><label class="user-label">Email:</label> <span>${user.email}</span></div>
-                <div class="user-address"> <label class="user-label">Address:</label>
-                <span>${user.address.street}, ${user.address.suite}, ${user.address.city}
-                </span>
-                </div>
-                <div class="user-zip"><label class="user-label">Zipcode:</label><span>${user.address.zipcode}</span></div>
-                <div class="button">
-                    <button class="dlt-button" onclick="deleteUser(this)">Delete</button>
-                    <button class="edit-button" onclick="editUser(this,${user.id});" > Edit </button>
-                    <button class="myBtn" onclick="viewUserInfo(this)" >View</button>
-                    
-                         <!-- The Modal -->
-                        <div id="myModal" class="modal">
-
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <!-- Info -->
-                            <div class="user-img-container"><img class="user-img" src="../User Registration with div/Assets/user.png" alt="" srcset=""></div>
-                            <div id='user-modal'></div>
-                            <div class="name">${user.name}</div>
-                                <div class="user-id">${user.id}</div>
-                                <div class="user-name"><label class="user-label">Username:</label> <span>${user.username}</span></div>
-                                <div class="user-email"><label class="user-label">Email:</label> <span>${user.email}</span></div>
-                                <div class="user-address"> <label class="user-label">Address:</label>
-                                <span>${user.address.street}, ${user.address.suite}, ${user.address.city}
-                                </span>
-                                </div>
-                                <div class="user-zip"><label class="user-label">Zipcode:</label><span>${user.address.zipcode}</span></div>
-                                
+                        <div class="user-img-container"><img class="user-img" src="../User Registration with div/Assets/user.png" alt="" srcset=""></div>
+                        <div class="name">${user.name}</div>
+                        <div class="user-id">${user.id}</div>
+                        <div class="user-name"><label class="user-label">Username:</label> <span>${user.username}</span></div>
+                        <div class="user-email"><label class="user-label">Email:</label> <span>${user.email}</span></div>
+                        <div class="user-address"> <label class="user-label">Address:</label>
+                        <span>${user.address.street}, ${user.address.suite}, ${user.address.city}
+                        </span>
                         </div>
-
+                        <div class="user-zip"><label class="user-label">Zipcode:</label><span>${user.address.zipcode}</span></div>
+                        <div class="button">
+                            <button class="dlt-button" onclick="deleteUser(this,${user.id})">Delete</button>
+                            <button class="edit-button" onclick="editUser(this);" > Edit </button>
                         </div>
-                </div>
-        </div>`
+                    </div>`
     }
     document.getElementById('user-container').innerHTML = dataHTML;
 }
 
-function addUser(username,
-    firstname,
-    lastname,
-    email,
-    street,
-    suite,
-    city,
-    zipcode,
-    users) {
-
+function addUser(username, firstname, lastname, email, street, suite, city, zipcode, users) {
     console.log(username, firstname, lastname, email, street, suite, city, zipcode, users);
     let fullName = firstname + " " + lastname;
-    let user = {
+    let newUser = {
         "id": Date.now(),
         "name": fullName,
         "username": username,
@@ -417,33 +423,55 @@ function addUser(username,
             "city": city,
             "zipcode": zipcode,
         }
-
-
     }
-    Users.unshift(user);
+
+
+    Users.unshift(newUser);
     console.log(Users);
     clearAllField();
-    loadUser();
+
+    sendUsers(newUser);
+    setTimeout(() => {
+        document.getElementById('confirmation-msg').innerHTML="New-User Successfully Added";
+    }, 300);
+    setTimeout(() => {
+        loadUser();
+    }, 2000);
+   
 }
 
-function deleteUser(element) {
-    userId = element.parentElement.parentElement.querySelector(".user-id").innerHTML;
-    // console.log(element.parentElement.parentElement.querySelector(".user-id").innerHTML);
-    let index = 0;
-    for (user of Users) {
-        if (user.id == userId) {
-            // console.log(index);
-            Users.splice(index, 1);
-            loadUser();
-        }
-        index++;
-    }
+function deleteUser(element,userId) {
+    // userId = element.parentElement.parentElement.querySelector(".user-id").innerHTML;
+    console.log(element.parentElement.parentElement.querySelector(".user-id").innerHTML);
+    // let index = 0;
+    // for (user of Users) {
+    //     if (user.id == userId) {
+    //         // console.log(index);
+    //         Users.splice(index, 1);
+    //         loadUser();
+    //     }
+    //     index++;
+    // }
+
+    
+    axios.delete(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    .then(response=>{
+        document.getElementsByClassName('user-info').innerHTML = 'User deleted Succesfully ';
+        console.log(response);
+    })
+    .catch(err =>{
+        console.log(err);
+    })
+    setTimeout(() => {
+        loadUser();
+    }, 3000);
+    
 }
 
-function editUser(element,id) {
+function editUser(element) {
     userInfo = element.parentElement.parentElement;
     let ID = userInfo.querySelector(".user-id").innerHTML;
-    console.log(ID,id);
+    console.log(ID);
     let fullname = userInfo.querySelector(".name").innerHTML;
     let userName = userInfo.querySelector(".user-name").children[1].innerHTML;
     let userEmail = userInfo.querySelector(".user-email").children[1].innerHTML;

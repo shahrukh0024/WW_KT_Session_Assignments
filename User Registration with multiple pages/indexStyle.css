@@ -83,6 +83,42 @@ body {
     column-gap: 25px;
     margin-top: 10px;
 }
+
+#Registration{
+    font-family: 'Montserrat';
+    font-size: 36px;
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #30ed6f;
+    padding: 30px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+
+    cursor: pointer;
+}
+.button-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: center;
+    height: 800px;
+    align-items: center;
+}
+#View-Users{
+    font-family: 'Montserrat';
+    font-size: 36px;
+    color: #ffffff;
+    text-transform: Capitalize;
+    text-decoration: none;
+    background: #c730ed;
+    padding: 30px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
 .dlt-button{
      font-family: 'Montserrat';
     color: #ffffff;

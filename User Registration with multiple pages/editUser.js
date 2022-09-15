@@ -1,24 +1,39 @@
+// import {loadUsers} from './viewusers';
+
 document.addEventListener('DOMContentLoaded', () => {
-
-    document.getElementById('submit').addEventListener('click',addUser)
-    // console.log(users);
-
-    // parsed = JSON.parse(users);
-    // console.log('parsed');
-    // console.log(parsed);
-
-    // JSONusersArr = JSON.stringify(users);
-    // console.log('JSONusersArr');
-    // console.log(JSONusersArr);
-
-    // j = JSON.parse(JSONusersArr);
-    // console.log('parsed');
-    // console.log(j);
-
-    // localStorage.setItem("usersList", JSONusersArr);
+    
+    dataToInputFields();
+    document.getElementById('submit').addEventListener('click',updateUsers)
 });
-users = [];
-const rootURL = 'https://jsonplaceholder.typicode.com/users';
+
+let Users = JSON.parse(localStorage.getItem("usersList"));
+
+function dataToInputFields(){
+    let userStr = localStorage.getItem("myUser");
+    console.log('userStr');
+    console.log(userStr);
+    let parsedUser = JSON.parse(userStr);
+    console.log('parsedUser');
+    console.log(parsedUser);
+    User = parsedUser;
+    console.log('User');
+    console.log(User);
+
+    let fullname = User.name;
+    fullnameArray = fullname.split(" ");
+    let userFirstName = fullnameArray[0];
+    let userLastName = fullnameArray[1];
+
+    document.getElementById('userId').value = User.id;
+    document.getElementById('username').value = User.username;
+    document.getElementById('firstname').value =  userFirstName;
+    document.getElementById('lastname').value = userLastName;
+    document.getElementById('email').value =  User.email;
+    document.getElementById('street').value =  User.address.street;
+    document.getElementById('suite').value =   User.address.suite;
+    document.getElementById('city').value =   User.address.city;
+    document.getElementById('zipcode').value =  User.address.zipcode;
+}
 
 function validateUser() {   
     let status = true;
@@ -123,91 +138,6 @@ function validateUser() {
 
 }
 
-function addUser()
-{
-    let userId = document.getElementById('userId').value;
-    if (userId == -1) {
-        addNewUser(username.value,
-            firstname.value,
-            lastname.value,
-            email.value,
-            street.value,
-            suite.value,
-            city.value,
-            zipcode.value
-        );
-    }
-    else {
-        console.log('userExist');
-        updateUsers(userId,
-            username.value,
-            firstname.value,
-            lastname.value,
-            email.value,
-            street.value,
-            suite.value,
-            city.value,
-            zipcode.value
-        );
-
-    }
-
-}
-
-function updateUsers(userid,
-    username,
-    firstname,
-    lastname,
-    email,
-    street,
-    suite,
-    city,
-    zipcode,
-) {
-    
-    let tobeEditUser = localStorage.getItem("myObject");
-    parsedUser =JSON.parse(tobeEditUser);
-    console.log(parsedUser);
-    let index = 0;
-    for (u of users) {
-        if (u.id == userid) {
-            break;
-        }
-        index++;
-    }
-    let fullName = firstname + " " + lastname;
-    users[index].name = fullName;
-    users[index].username = username;
-    users[index].email = email;
-    users[index].address.street = street;
-    users[index].address.suite = suite;
-    users[index].address.city = city;
-    users[index].address.zipcode = zipcode;
-    
-    // console.log(Users[index].address.city, city);
-    // let fullName = firstname + " " + lastname;
-    // let user = {
-    //     "id": userid,
-    //     "name": fullName,
-    //     "username": username,
-    //     "email": email,
-    //     "address": {
-    //         "street": street,
-    //         "suite": suite,
-    //         "city": city,
-    //         "zipcode": zipcode,
-    //     }
-    // }
-    // Users.splice(index,1,user);
-    // console.log(Users);
-    // clearAllField();
-    // loadUser();
-}
-
-function changeClassNameById(id, newClassName) {
-    document.getElementById(id).className = newClassName;
-}
-
 function setError(element, error) {
     let elementParent = element.parentElement;
 
@@ -265,14 +195,6 @@ function setError(element, error) {
     }
 }
 
-// function setError(element, error) {
-//     let elementParent = element.parentElement;
-//     elementParent.className = "input-field error"; // Setting Class
-//     // document.getElementById('usernameIcon').parentElement.className = "fa fa-exclamation-circle";
-//     elementParent.querySelector("i").className = "fa fa-exclamation-circle"; // icon
-//     elementParent.querySelector("span").innerHTML = error; // msg
-
-// }
 
 function setSuccess(element) {
     let elementParent = element.parentElement;
@@ -323,79 +245,8 @@ function setSuccess(element) {
     }
 }
 
-// function setSuccess(username) {
-//     let usernameParent = username.parentElement;
-//     usernameParent.className = "input-field success"; // Setting Class
-//     // usernameParent.querySelector("i").className ="fa fa-check-circle"; // icon
-//     usernameParent.querySelector(".fa").className = "fa fa-check-circle";
-// }
-
-function addNewUser(username,
-    firstname,
-    lastname,
-    email,
-    street,
-    suite,
-    city,
-    zipcode) {
-
-    // console.log(username, firstname, lastname, email, street, suite, city, zipcode, users);
-    let fullName = firstname + " " + lastname;
-    let newUser = {
-        "id": Date.now(),
-        "name": fullName,
-        "username": username,
-        "email": email,
-        "address": {
-            "street": street,
-            "suite": suite,
-            "city": city,
-            "zipcode": zipcode,
-        }
-
-
-    }
-    // users.unshift(user);
-    // console.log(users);
-
-    // parsed = JSON.parse(users);
-    // console.log('parsed');
-    // console.log(parsed);
-
-    // JSONusersArr = JSON.stringify(users);
-    // console.log('JSONusersArr');
-    // console.log(JSONusersArr);
-
-    // j = JSON.parse(JSONusersArr);
-    // console.log('parsed');
-    // console.log(j);
-
-    // localStorage.setItem("usersList",JSONusersArr);
-    // clearAllField();
-    // loadUser();
-    // document.getElementById('confirm').innerHTML = `${fullName}`
-    // Users.unshift(newUser);
-    console.log(users);
-    clearAllField();
-
-    sendUsers(newUser);
-    setTimeout(() => {
-        document.getElementById('confirmation-msg').innerHTML="New-User Successfully Added";
-    }, 300);
-    setTimeout(() => {
-        document.getElementById('confirmation-msg').innerHTML="";
-    }, 2000);
-
-}
-
-function sendUsers(newUser) {
-    // console.log(newUser);
-    axios.post(rootURL, newUser)
-        .then(response => {
-            console.log(response);
-        });
-
-    console.log('sendUser');
+function changeClassNameById(id, newClassName) {
+    document.getElementById(id).className = newClassName;
 }
 
 function clearAllField() {
@@ -411,4 +262,68 @@ function clearAllField() {
 
     // document.getElementById('username').parentElement.className ="input-field";
     // document.getElementById('username').parentElement.querySelector("i").className="fa";
+}
+
+function updateUsers() {
+    let index = 0;
+    let userid = document.getElementById('userId').value;
+    let username = document.getElementById('username').value;
+    let firstname = document.getElementById('firstname').value;
+    let lastname = document.getElementById('lastname').value;
+    let email = document.getElementById('email').value;
+    let street = document.getElementById('street').value;
+    let suite = document.getElementById('suite').value;
+    let city = document.getElementById('city').value;
+    let zipcode = document.getElementById('zipcode').value;
+    for (u of Users) {
+        if (u.id == userid) {
+            break;
+        }
+        index++;
+    }
+    // let fullName = firstname + " " + lastname;
+    // Users[index].name = fullName;
+    // Users[index].username = username;
+    // Users[index].email = email;
+    // Users[index].address.street = street;
+    // Users[index].address.suite = suite;
+    // Users[index].address.city = city;
+    // Users[index].address.zipcode = zipcode;
+
+    // console.log(Users[index].address.city, city);
+    
+   
+    
+    let fullName = firstname + " " + lastname;
+    let updatedUser = {
+        "id": userid,
+        "name": fullName,
+        "username": username,
+        "email": email,
+        "address": {
+            "street": street,
+            "suite": suite,
+            "city": city,
+            "zipcode": zipcode,
+        }
+    }
+    console.log(Users);
+    Users.splice(index,1,updatedUser);
+    console.log(updatedUser);
+    console.log(userid);
+    clearAllField();
+
+    axios.put(`https://jsonplaceholder.typicode.com/users/${userid}`,Users)
+    .then(response =>{
+        console.log(response);
+        document.getElementsByClassName('user-info').innerHTML = "Updated";
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+
+    loadUsers();
+
+    
+   
 }

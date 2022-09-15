@@ -1,91 +1,39 @@
-// Users = [
-//     {
-//         "id": 1,
-//         "name": "Leanne Graham",
-//         "username": "Bret",
-//         "email": "Sincere@april.biz",
-//         "address": {
-//             "street": "Kulas Light",
-//             "suite": "Apt. 556",
-//             "city": "Gwenborough",
-//             "zipcode": "92998-3874",
-//         }
-
-//     },
-//     {
-//         "id": 2,
-//         "name": "Ervin Howell",
-//         "username": "Antonette",
-//         "email": "Shanna@melissa.tv",
-//         "address": {
-//             "street": "Victor Plains",
-//             "suite": "Suite 879",
-//             "city": "Wisokyburgh",
-//             "zipcode": "90566-7771",
-
-//         }
-
-//     },
-//     {
-//         "id": 3,
-//         "name": "Clementine Bauch",
-//         "username": "Samantha",
-//         "email": "Nathan@yesenia.net",
-//         "address": {
-//             "street": "Douglas Extension",
-//             "suite": "Suite 847",
-//             "city": "McKenziehaven",
-//             "zipcode": "59590-4157",
-
-//         }
-
-//     },
-//     {
-//         "id": 4,
-//         "name": "Patricia Lebsack",
-//         "username": "Karianne",
-//         "email": "Julianne.OConner@kory.org",
-//         "address": {
-//             "street": "Hoeger Mall",
-//             "suite": "Apt. 692",
-//             "city": "South Elvis",
-//             "zipcode": "53919-4257",
-
-//         }
-
-//     },
-//     {
-//         "id": 5,
-//         "name": "Chelsey Dietrich",
-//         "username": "Kamren",
-//         "email": "Lucio_Hettinger@annie.ca",
-//         "address": {
-//             "street": "Skiles Walks",
-//             "suite": "Suite 351",
-//             "city": "Roscoeview",
-//             "zipcode": "33263",
-
-//         }
-//     }];
-
-Users = [];
-
+let Users = [];
+const rootURL = 'https://jsonplaceholder.typicode.com/users';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    let usersStr = localStorage.getItem("usersList");
-    console.log('usersStr');
-    console.log(usersStr);
-    let parsedUsers = JSON.parse(usersStr);
-    console.log('parsedUsers');
-    console.log(parsedUsers);
-    Users = parsedUsers;
-    console.log('Users');
-    console.log(Users);
+    // let usersStr = localStorage.getItem("usersList");
+    // console.log('usersStr');
+    // console.log(usersStr);
+    // let parsedUsers = JSON.parse(usersStr);
+    // console.log('parsedUsers');
+    // console.log(parsedUsers);
+    // Users = parsedUsers;
+    // console.log('Users');
+    // console.log(Users);
+    // loadUsers();
 
-    loadUsers();
+    getUsers();
+    localStorage.setItem("usersList", JSON.stringify(Users));
+    setTimeout(() => {
+        loadUsers();
+    }, 2500);
+
+
 });
 // document.getElementById("users").addEventListener("load", loadUsers);
+
+function getUsers() {
+
+    axios.get(rootURL)
+        .then(response => {
+            // console.log(response.data);
+            // console.log(response.data.length);
+            Users = [...response.data];
+            // console.log(Users);
+        });
+}
 
 function loadUsers() {
     // console.log('hiiiiii');
@@ -105,7 +53,7 @@ function loadUsers() {
                 <div class="user-zip"><label class="user-label">Zipcode:</label><span>${user.address.zipcode}</span></div>
                 <div class="button">
                     <button class="dlt-button" onclick="deleteUser(this)">Delete</button>
-                    <button class="edit-button"onclick=" editUser(this); redirectFun();"> Edit </button>
+                    <button class="edit-button"onclick=" editUser(this);"> Edit </button>
                    
                 
                                 
@@ -133,7 +81,8 @@ function deleteUser(element) {
 }
 
 function redirectFun() {
-    window.location.href = "file:///D:/Shahrukh%20Pathan/WW-KT/User%20Registration%20with%20multiple%20pages/signup.html";
+    location.assign("./editUser.html");
+    // window.location.href = "file:///D:/Shahrukh%20Pathan/WW-KT/User%20Registration%20with%20multiple%20pages/editUser.html";
 }
 
 function editUser(element) {
@@ -190,8 +139,12 @@ function editUser(element) {
     }
     console.log(user);
 
+    // ----------Local Storage--------
+    userStr = JSON.stringify(user);
+    console.log(userStr);
     localStorage.setItem("myUser", JSON.stringify(user));
-    document.getElementById('userId').value = ID;
+    redirectFun();
+    // document.getElementById('userId').value = ID;
     // document.getElementById('username').value = userName;
     // document.getElementById('firstname').value = userFirstName;
     // document.getElementById('lastname').value = userLastName;
@@ -202,3 +155,4 @@ function editUser(element) {
     // document.getElementById('zipcode').value = userZipcode;
 
 }
+

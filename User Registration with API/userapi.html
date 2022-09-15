@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="userstyle.css">
+    <link rel="stylesheet" href="userstyleAPI.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="userScript.js"></script>
+    <script src="userScriptAPI.js"></script>
     <title>User Registration</title>
 </head>
 
@@ -22,7 +22,7 @@
         <div class="form-box">
             <h2>Create Your Account</h2>
             <div class="user-id">
-                <input type="number" id="userId"  placeholder="" value=-1>
+                <input type="number" id="userId" placeholder="" value=-1>
             </div>
             <div class="input-field">
                 <label for="username">User name</label>
@@ -75,6 +75,7 @@
             <input type="submit" id="submit" value="Submit">
         </div>
     </div>
+    <div id="confirmation-msg"></div>
     <div class="user-wrapper">
         <h2 class="title"> Users List</h2>
         <div id="user-container">
@@ -89,19 +90,8 @@
                 <div class="button">
                     <button class="dlt-button">Delete</button>
                     <button class="edit-button"> Edit </button>
-                    
+
                 </div>
-                <button id="myBtn">Open Modal</button>
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal">
-
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>Some text in the Modal..</p>
-                        </div>
-
-                    </div>
 
             </div>
             <div class="user-info">
