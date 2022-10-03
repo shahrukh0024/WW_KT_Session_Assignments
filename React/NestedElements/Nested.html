@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nested Element</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script>
+        var el = React.createElement("div", {
+            id: "inner-div-id",
+            key: "key-1"
+        }, React.createElement("h2", {
+            id: "header-id"
+        }, "Welcome to the React"));
+
+        var an_el = React.createElement("p", {
+            id: "para-id",
+            key: "key-2"
+        }, "Para works");
+        var el_list = [el, an_el];
+        var outer_div = React.createElement("div", {
+            id: "outer-div-id"
+        }, el_list);
+        ReactDOM.render(outer_div, document.getElementById('root'));
+    </script>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Component</title>
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <!-- Load Babel -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <style>
+        .button {
+            display: inline-block;
+            width: 200px;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+            border: solid 1px rgb(0, 119, 255);
+            cursor: pointer;
+            padding: 7px;
+            margin-top: 12px;
+            margin-right: 12px;
+            line-height: 34px;
+            background-color: rgb(74, 234, 240);
+        }
+
+        .button:hover {
+            color:rgb(128, 0, 0);
+        }     
+    </style>
+    <body>
+        <div id="updateCounter"></div>
+        <script type="text/babel">
+            class CounterItems extends React.Component{
+                state = {
+                            // valueA: 0,
+                            // valueB: 0,
+                            // valueC :0
+                            boxes: [
+
+                                { label: "A", value: 0 },
+
+                                { label: "B", value: 0 },
+
+                                { label: "C", value: 0 },
+
+                                { label: "Reset", value: "" }
+
+                                ]
+                        }
+                updateValuesByA = () =>{
+                    this.setState((prevState) =>({
+                        valueA: prevState.valueA + 1,
+                        valueB: prevState.valueB + 2,
+                        valueC: prevState.valueC -1
+                    })
+
+                    );
+                }
+                updateValuesByB = () =>{
+                    this.setState((prevState) =>({
+                        valueA: prevState.valueA - 1,
+                        valueB: prevState.valueB + 1,
+                        valueC: prevState.valueC +2
+                    })
+
+                    );
+                }
+                updateValuesByC = () =>{
+                    this.setState((prevState) =>({
+                        valueA: prevState.valueA +2,
+                        valueB: prevState.valueB - 1,
+                        valueC: prevState.valueC +1
+                    })
+
+                    );
+                }
+                reset = () =>{
+                    this.setState(() =>({
+                        valueA:0,
+                        valueB: 0,
+                        valueC:0
+                    })
+
+                    );
+                }
+            
+                render(){
+                    return(
+                        <>
+                        <button className="button" onClick={this.setValues('A',[1,2,-1])}>A: {this.state.valueA}</button>
+                        <button className="button" onClick={this.updateValuesByB}>B: {this.state.valueB}</button>
+                        <button className="button" onClick={this.updateValuesByC}>C: {this.state.valueC}</button>
+                        <button className="button" onClick={this.reset}>Reset</button>
+                        <img src="./Capture.PNG"/>
+                        </>
+                    );
+                }
+            }
+
+            ReactDOM.render(<CounterItems />, document.getElementById('updateCounter'));
+        </script>
+    </body>
+</html>

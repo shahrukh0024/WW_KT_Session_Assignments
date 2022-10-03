@@ -406,7 +406,7 @@ function loadUser() {
                         </div>
                     </div>`
     }
-    document.getElementById('user-container').innerHTML = dataHTML;
+    // document.getElementById('user-container').innerHTML = dataHTML;
 }
 
 function addUser(username, firstname, lastname, email, street, suite, city, zipcode, users) {

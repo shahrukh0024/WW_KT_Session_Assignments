@@ -17,8 +17,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // localStorage.setItem("usersList", JSONusersArr);
 });
-users = [];
-const rootURL = 'https://jsonplaceholder.typicode.com/users';
+users = [
+    {
+        "id": 1,
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "address": {
+            "street": "Kulas Light",
+            "suite": "Apt. 556",
+            "city": "Gwenborough",
+            "zipcode": "92998-3874",
+        }
+
+    },
+    {
+        "id": 2,
+        "name": "Ervin Howell",
+        "username": "Antonette",
+        "email": "Shanna@melissa.tv",
+        "address": {
+            "street": "Victor Plains",
+            "suite": "Suite 879",
+            "city": "Wisokyburgh",
+            "zipcode": "90566-7771",
+
+        }
+
+    },
+    {
+        "id": 3,
+        "name": "Clementine Bauch",
+        "username": "Samantha",
+        "email": "Nathan@yesenia.net",
+        "address": {
+            "street": "Douglas Extension",
+            "suite": "Suite 847",
+            "city": "McKenziehaven",
+            "zipcode": "59590-4157",
+
+        }
+
+    },
+    {
+        "id": 4,
+        "name": "Patricia Lebsack",
+        "username": "Karianne",
+        "email": "Julianne.OConner@kory.org",
+        "address": {
+            "street": "Hoeger Mall",
+            "suite": "Apt. 692",
+            "city": "South Elvis",
+            "zipcode": "53919-4257",
+
+        }
+
+    },
+    {
+        "id": 5,
+        "name": "Chelsey Dietrich",
+        "username": "Kamren",
+        "email": "Lucio_Hettinger@annie.ca",
+        "address": {
+            "street": "Skiles Walks",
+            "suite": "Suite 351",
+            "city": "Roscoeview",
+            "zipcode": "33263",
+
+        }
+    }];
 
 function validateUser() {   
     let status = true;
@@ -168,6 +235,8 @@ function updateUsers(userid,
     let tobeEditUser = localStorage.getItem("myObject");
     parsedUser =JSON.parse(tobeEditUser);
     console.log(parsedUser);
+
+
     let index = 0;
     for (u of users) {
         if (u.id == userid) {
@@ -341,7 +410,7 @@ function addNewUser(username,
 
     // console.log(username, firstname, lastname, email, street, suite, city, zipcode, users);
     let fullName = firstname + " " + lastname;
-    let newUser = {
+    let user = {
         "id": Date.now(),
         "name": fullName,
         "username": username,
@@ -352,63 +421,26 @@ function addNewUser(username,
             "city": city,
             "zipcode": zipcode,
         }
+        
 
 
     }
-    // users.unshift(user);
+    users.unshift(user);
     // console.log(users);
 
     // parsed = JSON.parse(users);
     // console.log('parsed');
     // console.log(parsed);
 
-    // JSONusersArr = JSON.stringify(users);
-    // console.log('JSONusersArr');
-    // console.log(JSONusersArr);
+    JSONusersArr = JSON.stringify(users);
+    console.log('JSONusersArr');
+    console.log(JSONusersArr);
 
     // j = JSON.parse(JSONusersArr);
     // console.log('parsed');
     // console.log(j);
 
-    // localStorage.setItem("usersList",JSONusersArr);
+    localStorage.setItem("usersList",JSONusersArr);
     // clearAllField();
     // loadUser();
-    // document.getElementById('confirm').innerHTML = `${fullName}`
-    // Users.unshift(newUser);
-    console.log(users);
-    clearAllField();
-
-    sendUsers(newUser);
-    setTimeout(() => {
-        document.getElementById('confirmation-msg').innerHTML="New-User Successfully Added";
-    }, 300);
-    setTimeout(() => {
-        document.getElementById('confirmation-msg').innerHTML="";
-    }, 2000);
-
-}
-
-function sendUsers(newUser) {
-    // console.log(newUser);
-    axios.post(rootURL, newUser)
-        .then(response => {
-            console.log(response);
-        });
-
-    console.log('sendUser');
-}
-
-function clearAllField() {
-    document.getElementById('userId').value = -1;
-    document.getElementById('username').value = "";
-    document.getElementById('firstname').value = "";
-    document.getElementById('lastname').value = "";
-    document.getElementById('email').value = "";
-    document.getElementById('street').value = "";
-    document.getElementById('suite').value = "";
-    document.getElementById('city').value = "";
-    document.getElementById('zipcode').value = "";
-
-    // document.getElementById('username').parentElement.className ="input-field";
-    // document.getElementById('username').parentElement.querySelector("i").className="fa";
 }
