@@ -1,0 +1,14 @@
+.total_price {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+
+.checkout_wrapper {
+    box-sizing: border-box;
+    margin: 4px;
+}
+
+.checkout {
+    min-width: 100%;
+}

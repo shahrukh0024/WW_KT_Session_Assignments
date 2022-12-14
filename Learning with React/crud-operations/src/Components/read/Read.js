@@ -25,6 +25,7 @@ export default function Read() {
                     setFlag(true);
                     console.log(response.data);
                     console.log(flag);
+                    setFlag()
 
                 },[flag])}
             }

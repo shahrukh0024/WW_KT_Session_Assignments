@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonComponent from './ButtonComponent'
+import Button from './Button'
 import Item from './Item'
 
 
@@ -8,25 +8,41 @@ function Box(props) {
         backgroundColor: props.color
     }
     const SameColoredArr = props.items.filter(value => props.color === value.place);
-    // console.log(props.items);
-    // console.log(SameColoredArr);
+    console.log(SameColoredArr);
   return (
     <div className='box' style={boxColor}>
         {SameColoredArr.map((value,index) => {
+          let flag = false;
+          if(value.name === value.place)
+          {
+            flag = true;
+          }
             return (
                 <>
                 <div className='inside-box'>
-                <ButtonComponent buttonContent="prev"
-                                 color = {value.place}
-                                 toggle = {props.toggle}
-                                 items = {SameColoredArr[index]}
-                                 />
-                <Item item ={value.name}/>
-                <ButtonComponent buttonContent="next"
-                                 color = {value.place}
-                                 toggle = {props.toggle}
-                                 items = {SameColoredArr[index]}
-                                 />
+                  <div>
+                    <Button buttonContent="prev"
+                                    color = {value.place}
+                                    toggle = {props.toggle}
+                                    items = {SameColoredArr[index]}
+                                    isDisabled = {flag}
+                                    />
+                  </div>
+                  <div style={{
+                    color:'white',
+                    textTransform: 'uppercase',
+                    margin:'2px'
+                  }}>
+                    <Item item ={value.name}/>
+                  </div>
+                  <div>
+                    <Button buttonContent="next"
+                                    color = {value.place}
+                                    toggle = {props.toggle}
+                                    items = {SameColoredArr[index]}
+                                    isDisabled = {flag}
+                                    />
+                  </div>
                 </div>
                 </>
                 )

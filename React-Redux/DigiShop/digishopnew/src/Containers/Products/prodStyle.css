@@ -1,0 +1,35 @@
+
+.nowrap{
+    white-space: nowrap;
+}
+.buttons{
+    display: flex;
+    max-height: 3rem;
+    font-size: 2rem;
+    justify-content: center;
+    column-gap: 2px;
+}
+.buttons select{
+    min-width: 5rem;
+}
+
+.view_btn{
+    display: block;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: aliceblue;
+    background-color: black;
+}
+
+.view_btn:hover{
+    color:  black;
+    background-color: aliceblue;
+}
+
+.price{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
